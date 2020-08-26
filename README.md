@@ -1,12 +1,11 @@
 # Minimalist Trivia
-## An App by Brendan Rogers.
+### An App by Brendan Rogers.
 https://brendanrogers.online
 
 ### Installation
 1. Clone into directory of your choosing.
 2. Open directory in command terminal of your choosing
 3. Run `npm init` to aquire sweet dependencies
-You're all set to test!
 
 ### Usage
 Run `npm run scss` to compile SASS into usable CSS. Test in browser of your choosing. Minimalist Trivia was developed in Friefox Developer Edition.
