@@ -1,6 +1,5 @@
 # Minimalist Trivia
 The trivia app we deserve.
-https://brendanrogers.online
 
 ## Installation
 1. Clone into directory of your choosing.
