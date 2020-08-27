@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Minimalist Trivia | The Trivia App We Deserve</title>
+	<title>Minimal Trivia | The Trivia App We Deserve</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta content="text/html; charset=UTF-8; X-Content-Type-Options=nosniff" http-equiv="Content-Type" />
     <!-- Facebook Metatags -->
-	<meta property="og:title" content="Minimalist Trivia">
+	<meta property="og:title" content="Minimal Trivia">
 	<meta property="og:description" content="The Trivia App that We Deserve">
-	<meta property="og:image" content="https://spacedog.studio/images/logo.png">
-	<meta property="og:url" content="https://minimaltrivia.online">
+	<meta property="og:image" content="https://minimaltrivia.com/icons/android-chrome-512x512.png">
+	<meta property="og:url" content="https://minimaltrivia.com">
 	<link rel="stylesheet" href="css/master.css">
 	<link rel="manifest" href="/manifest.json">
+	<!-- Favicon Monkey Business -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+	<link rel="manifest" href="/favicons/site.webmanifest">
+	<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/favicons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
 </head>
 <body>
 
@@ -31,7 +41,7 @@
 	</div>
 
 	<div id="center-status">
-		<p id="status">Welcome to Minimalist Trivia</p>
+		<p id="status">Welcome to Minimal Trivia</p>
 		<p><span id="correct">0</span> - <span id="incorrect">0</span></p>
 	</div>
 	
@@ -71,10 +81,44 @@
 			<option value="hard">	Hard</option>
 		</select>
 	</footer>
+
+	<section id="info" class="hidden">
+		<img src="icons/android-chrome-192x192.png" alt="Logo">
+		<div class="title">
+			<h2>Minimal Trivia</h2>
+			<h3>The Trivia App We Deserve</h3>
+			<p>v1.1</p>
+		</div>
+		<div class="brendan">
+			<h4>Developed with Love by Brendan Rogers</h4>
+			<div class="inlineButtons">
+				<a href="https://brendanrogers.online" target="_blank">Visit my Portfolio</a>
+				<a href="https://github.com/Brendan-Rogers/minimalist-trivia" target="_blank">View Source on GitHub</a>
+			</div>
+		</div>
+		<div class="credits">
+			<p class="credit">Powered by <a href="https://opentdb.com/" target="_blank">Open Trivia Database</a></p>
+			<p class="credit">Created and maintained by the good folks at <a href="https://www.pixeltailgames.com/" target="_blank">PIXELTAIL GAMES LLC.</a> </p>
+		</div>
+	</section>
+
+	<div id="info-btn">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-8h2v8zm-1-12.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25z"/></svg>
+	</div>
 	
 
 </main>
 
 </body>
 <script type="text/javascript" src="js/index.js"></script>
+<script>
+// Check that service workers are supported
+	if ('serviceWorker' in navigator) {
+	  // Use the window load event to keep the page load performant
+	  window.addEventListener('load', () => {
+	    navigator.serviceWorker.register('/service-worker.js');
+	  });
+	}
+</script>
+
 </html>
