@@ -77,7 +77,11 @@
 
 	
 	
-	
+	// Check for Service Worker / Register Service Worker
+	 if ('serviceWorker' in navigator) { 
+	 	// register service worker 
+	 	navigator.serviceWorker.register('/service-worker.js'); 
+	 }
 })();
 
 
