@@ -16,9 +16,16 @@
 	let difficulty = 'hard';
 	let url = constructURL(category, difficulty);
 
+	// loading variable for CORRECT ANSWER
+	let correctAnswer = "";
+
 	// Define output zones
-	let headlineOut = document.querySelector("#headline");
-	let questionOut = document.querySelector("#question");
+	const headlineOut = document.querySelector("#headline");
+	const questionOut = document.querySelector("#question");
+	const correctOut = document.querySelector("#correct");
+	const incorrectOut = document.querySelector("#incorrect");
+	const status = document.querySelector("#status");
+
 	// create button array
 	btn1 = document.querySelector("#btn1");
 	btn2 = document.querySelector("#btn2");
@@ -38,6 +45,7 @@
 		question = trivia.results[0];
 		headlineOut.innerHTML = `${question.category.toUpperCase()} - ${question.difficulty.toUpperCase()}`;
 		questionOut.innerHTML = question.question;
+		correctAnswer = question.correct_answer;
 
 		// Load the ANSWERS into BTNs
 		switch (question.type) {
@@ -46,7 +54,7 @@
 				// make Buttons 3 and 4 visible, after TRUE / FALSE question
 				btn[2].style.visibility = "visible";
 				btn[3].style.visibility = "visible";
-				// set Correct Question
+				// set Correct Answer in a RANDOM position
 				let correct_location = Math.floor(Math.random() * Math.floor(4));
 				btn[correct_location].innerHTML = question.correct_answer;
 				btn[correct_location].value = 1;
@@ -55,7 +63,7 @@
 				x = 0;
 				// Loop through BUTTONS
 				for (i = 0; i < 4; i++) {
-					// escape if we're on Correct Answer
+					// escape if we're on CORRECT LOCATION
 					if (i == correct_location) { continue; }
 					// button needs a question, so we write the first Wrong Answer to it
 					btn[i].innerHTML = question.incorrect_answers[x];
@@ -79,11 +87,8 @@
 					btn[0].value = 0;
 					btn[1].value = 1;
 				}
-
 				break;
-		}
-
-		
+		}		
 	}
 	// Creates API URL on state change
 	function constructURL(category, difficulty) {
@@ -99,10 +104,18 @@
 	// EVENT HANDLING
 	btn.forEach((element) => {
 		element.addEventListener('click', (element)=> {
-				// RESULT is based on value of clicked button
+				// RESULT is based on value of clicked button, Increment SCORES based on RESULT
 				let result = (element.target.value == 1) ? "TRUE" : "FALSE";
-				// Increment SCORES based on RESULT
-				if (result) { correct++; } else { incorrect++; }
+				if (result == "TRUE") {
+					status.innerHTML = `CORRECT`;
+					correct++; 
+				} else {
+					status.innerHTML = `INCORRECT, the answer was ${correctAnswer.toUpperCase()}`;
+					incorrect++; 
+				}
+				correctOut.innerHTML = correct;
+				incorrectOut.innerHTML = incorrect;
+
 				// Prepare new URL from dropdowns
 				const categorySelect = document.querySelector('#categories');
 				const difficultySelect = document.querySelector('#difficulty');
