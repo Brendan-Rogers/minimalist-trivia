@@ -128,6 +128,17 @@
 		});
 	});
 
+	// Show and Hide INFO SCREEN
+	const infoBtn = document.querySelector("#info-btn");
+	const info = document.querySelector("#info");
+	// TOGGLE the hidden class
+	infoBtn.addEventListener('click', ()=> {
+		info.classList.toggle('hidden');
+	});
+	info.addEventListener('click', ()=> {
+		info.classList.toggle('hidden');
+	});
+
 	// Instantanious Update upon changing dropdowns (expected behaviour?)
 	// CATEGORY change
 	const categorySelect = document.querySelector('#categories');
@@ -146,14 +157,6 @@
 		let url = constructURL(category, difficulty);
 		getTrivia(url);
 	});
-
-	
-	
-	// Check for Service Worker / Register Service Worker
-	 // if ('serviceWorker' in navigator) { 
-	 // 	// register service worker 
-	 // 	navigator.serviceWorker.register('/service-worker.js'); 
-	 // }
 })();
 
 
