@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Minimalist Trivia | An App by Brendan Rogers</title>
+	<title>Minimalist Trivia | The Trivia App We Deserve</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,54 +16,64 @@
 </head>
 <body>
 
-<h3 id="headline"></h3>
+<main>
+	<h3 id="headline">General Knowledge - Hard</h3>
 
-<h2><span id="question"></span></h2>
+	<h2 id="question"></h2>
 
-<button class="button" id="btn1"></button>
-<button class="button" id="btn2"></button>
-<button class="button" id="btn3"></button>
-<button class="button" id="btn4"></button>
+	<div id="center-buttons">
+		<div id="buttons">
+			<button class="button" id="btn1"></button>
+			<button class="button" id="btn2"></button>
+			<button class="button" id="btn3"></button>
+			<button class="button" id="btn4"></button>
+		</div>
+	</div>
 
-<p id="status"></p>
-
-<p><span id="correct">0</span> - <span id="incorrect">0</span></p>
-
-<select name="category" id="categories">
-	<option value="0">-- Any Category --</option>
-	<option value="9">General Knowledge</option>
-	<option value="10">Books</option>
-	<option value="11">Film</option>
-	<option value="12">Music</option>
-	<option value="13">Musicals and Theatre</option>
-	<option value="14">Television</option>
-	<option value="15">Video Games</option>
-	<option value="16">Board Games</option>
-	<option value="17">Science and Nature</option>
-	<option value="18">Computers</option>s
-	<option value="19">Mathematics</option>
-	<option value="20">Mythology</option>
-	<option value="21">Sports</option>
-	<option value="22">Geography</option>
-	<option value="23">History</option>
-	<option value="24">Politics</option>
-	<option value="25">Art</option>
-	<option value="26">Celebrities</option>
-	<option value="27">Animals</option>
-	<option value="28">Vehicles</option>
-	<option value="29">Comics</option>
-	<option value="30">Gadgets</option>
-	<option value="31">Japanese Anime and Manga</option>
-	<option value="32">Cartoon and Animation</option>
-</select>
-
-<select name="difficulty" id="difficulty">
-	<option value="0">-- Any Difficulty --</option>
-	<option value="easy">	Easy</option>
-	<option value="medium">	Medium</option>
-	<option value="hard">	Hard</option>
+	<div id="center-status">
+		<p id="status">Welcome to Minimalist Trivia</p>
+		<p><span id="correct">0</span> - <span id="incorrect">0</span></p>
+	</div>
 	
-</select>
+	<footer>
+		<select name="category" id="categories">
+			<option value="0">-- Any Category --</option>
+			<option value="9">General Knowledge</option>
+			<option value="10">Books</option>
+			<option value="11">Film</option>
+			<option value="12">Music</option>
+			<option value="13">Musicals and Theatre</option>
+			<option value="14">Television</option>
+			<option value="15">Video Games</option>
+			<option value="16">Board Games</option>
+			<option value="17">Science and Nature</option>
+			<option value="18">Computers</option>s
+			<option value="19">Mathematics</option>
+			<option value="20">Mythology</option>
+			<option value="21">Sports</option>
+			<option value="22">Geography</option>
+			<option value="23">History</option>
+			<option value="24">Politics</option>
+			<option value="25">Art</option>
+			<option value="26">Celebrities</option>
+			<option value="27">Animals</option>
+			<option value="28">Vehicles</option>
+			<option value="29">Comics</option>
+			<option value="30">Gadgets</option>
+			<option value="31">Japanese Anime and Manga</option>
+			<option value="32">Cartoon and Animation</option>
+		</select>
+
+		<select name="difficulty" id="difficulty">
+			<option value="0">-- Any Difficulty --</option>
+			<option value="easy">	Easy</option>
+			<option value="medium">	Medium</option>
+			<option value="hard">	Hard</option>
+		</select>
+	</footer>
+	
+
+</main>
 
 </body>
 <script type="text/javascript" src="js/index.js"></script>

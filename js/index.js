@@ -52,8 +52,8 @@
 			// Load MULTIPLE CHOICE question
 			case 'multiple':
 				// make Buttons 3 and 4 visible, after TRUE / FALSE question
-				btn[2].style.visibility = "visible";
-				btn[3].style.visibility = "visible";
+				btn[2].style.display = "block";
+				btn[3].style.display = "block";
 				// set Correct Answer in a RANDOM position
 				let correct_location = Math.floor(Math.random() * Math.floor(4));
 				btn[correct_location].innerHTML = question.correct_answer;
@@ -77,8 +77,8 @@
 				// load TRUE / FALSE buttons
 				btn[0].innerHTML = "True";
 				btn[1].innerHTML = "False";
-				btn[2].style.visibility = "hidden";
-				btn[3].style.visibility = "hidden";
+				btn[2].style.display = "none";
+				btn[3].style.display = "none";
 				// load VALUES based on QUESTION.CORRECT_ANSWER
 				if (question.correct_answer){ 
 					btn[0].value = 1;
