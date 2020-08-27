@@ -1,5 +1,6 @@
 # Minimalist Trivia
 The trivia app we deserve.
+https://minimaltrivia.com
 
 ## Installation
 1. Clone into directory of your choosing.
