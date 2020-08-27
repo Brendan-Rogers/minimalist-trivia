@@ -7,6 +7,21 @@
 //		https://opentdb.com
 (()=>{ console.log('Index is initiated.');
 
+	// Define default trivia request
+	let category = 9;
+	let difficulty = 'hard';
+	let url = constructURL(category, difficulty);
+
+	// Define output zones
+	let headlineOut = document.querySelector("#headline");
+	let questionOut = document.querySelector("#question");
+	// create button array
+	btn1 = document.querySelector("#btn1");
+	btn2 = document.querySelector("#btn2");
+	btn3 = document.querySelector("#btn3");
+	btn4 = document.querySelector("#btn4");
+	btn = [btn1, btn2, btn3, btn4];
+
 	// FUNCTIONS
 	function getTrivia(url) {
 		fetch(url)
@@ -39,28 +54,18 @@
 		}
 	}
 	// Creates API URL on state change
-	function constructURL(amount, category, difficulty) {
-		return `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`;
+	function constructURL(category, difficulty) {
+		let url = `https://opentdb.com/api.php?amount=1`;
+		if (category) {url += `&category=${category}`;}
+		if (difficulty) {url += `&difficulty=${difficulty}`;}
+		return url;
 	}
-
-	// Define default trivia request
-	let amount = 1;
-	let category = 9;
-	let difficulty = 'hard';
-	let url = constructURL(amount, category, difficulty);
-
-	// Define output zones
-	let headlineOut = document.querySelector("#headline");
-	let questionOut = document.querySelector("#question");
-	// create button array
-	btn1 = document.querySelector("#btn1");
-	btn2 = document.querySelector("#btn2");
-	btn3 = document.querySelector("#btn3");
-	btn4 = document.querySelector("#btn4");
-	btn = [btn1, btn2, btn3, btn4];
 
 	// call default trivia
 	getTrivia(url);
+
+
+
 
 	// EVENT HANDLING
 	btn.forEach((element) => {
@@ -68,20 +73,44 @@
 				// True or False click
 				let result = (element.target.value == 1) ? "True" : "False";
 				console.log(result);
+				// Prepare new URL from dropdowns
+				const categorySelect = document.querySelector('#categories');
+				const difficultySelect = document.querySelector('#difficulty');
+				category = categorySelect.options[categorySelect.selectedIndex].value;
+				difficulty = difficultySelect.options[difficultySelect.selectedIndex].value;
+				url = constructURL(category, difficulty);
 				// Make a new question
 				getTrivia(url);
 
 		});
 	});
 
+	// Instantanious Update upon changing dropdowns (expected behaviour?)
+	// CATEGORY change
+	const categorySelect = document.querySelector('#categories');
+	categorySelect.addEventListener('change', (element) => {
+		category = categorySelect.options[categorySelect.selectedIndex].value;
+		difficulty = difficultySelect.options[difficultySelect.selectedIndex].value;
+		let url = constructURL(category, difficulty);
+		getTrivia(url);
+	});
+
+	// DIFFICULTY change
+	const difficultySelect = document.querySelector('#difficulty');
+	difficultySelect.addEventListener('change', (element) => {
+		category = categorySelect.options[categorySelect.selectedIndex].value;
+		difficulty = difficultySelect.options[difficultySelect.selectedIndex].value;
+		let url = constructURL(category, difficulty);
+		getTrivia(url);
+	});
 
 	
 	
 	// Check for Service Worker / Register Service Worker
-	 if ('serviceWorker' in navigator) { 
-	 	// register service worker 
-	 	navigator.serviceWorker.register('/service-worker.js'); 
-	 }
+	 // if ('serviceWorker' in navigator) { 
+	 // 	// register service worker 
+	 // 	navigator.serviceWorker.register('/service-worker.js'); 
+	 // }
 })();
 
 
